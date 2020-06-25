@@ -45,6 +45,7 @@ app.use(session({
     secret:'random',
     resave: false,
     saveUninitialized: false,
+    cookie: {expires: new Date(253402300000000)},
     store: new mongoStore({ mongooseConnection: mongoose.connection })
  }))
 
