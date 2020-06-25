@@ -26,7 +26,7 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
     }
 })
 
-router.get('/user/:userId', ensureAuth, async (req, res) => {
+router.get('/user/:userId', async (req, res) => {
     try {
       const stories = await Story.find({
         user: req.params.userId,
@@ -119,6 +119,7 @@ router.get('/', async (req, res) => {
             stories
         })
     }catch(e){
+        res.send(e)
         res.render('error/500')
     }
 })
