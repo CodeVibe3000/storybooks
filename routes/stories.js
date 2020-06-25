@@ -45,7 +45,7 @@ router.get('/user/:userId', async (req, res) => {
   })
   
 
-router.get('/:id', ensureAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
       let story = await Story.findById(req.params.id).populate('user').lean()
   
